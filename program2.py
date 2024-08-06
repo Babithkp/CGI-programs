@@ -1,19 +1,15 @@
 import turtle
-import math
-
 
 screen = turtle.Screen()
-screen.bgcolor("white")
-
+screen.bgcolor('white')
 
 t = turtle.Turtle()
-t.speed(1)  
-t.pensize(2)  
+t.speed(1)
+t.pensize(2)
 
-
-def draw_rectangle(x, y, width, height, color):
+def draw_rectangle(x,y,width,height,color):
     t.penup()
-    t.goto(x, y)
+    t.goto(x,y)
     t.pendown()
     t.color(color)
     for _ in range(2):
@@ -23,60 +19,48 @@ def draw_rectangle(x, y, width, height, color):
         t.left(90)
 
 
-def draw_circle(x, y, radius, color):
+def draw_circle(x,y,radius,color):
     t.penup()
-    t.goto(x, y - radius)
-    t.pendown()
+    t.goto(x,y-radius)
     t.color(color)
+    t.pendown()
     t.circle(radius)
 
 
-def translate(x, y, dx, dy):
+def translate(x,y,dx,dy):
     t.penup()
-    t.goto(x + dx, y + dy)
+    t.goto(x+dx,y+dy)
     t.pendown()
 
-
-def rotate(x, y, angle):
+def rotate(x,y,angle):
     t.penup()
-    t.goto(x, y)
+    t.goto(x,y)
     t.setheading(angle)
     t.pendown()
 
-
-def scale(x, y, sx, sy):
+def scale(x,y,sx,sy):
     t.penup()
-    t.goto(x * sx, y * sy)
+    t.goto(x*sx,y*sy)
     t.pendown()
 
 
-draw_rectangle(-200, 0, 100, 50, "blue")
+draw_rectangle(-200,0,100,50,'blue')
+
+translate(-200,0,200,0)
+
+draw_rectangle(0,0,100,50,'blue')
+rotate(0,0,45)
+draw_rectangle(0,0,100,50,'blue')
+scale(0,0,2,2)
+
+draw_rectangle(0,0,100,50,'blue')
+
+draw_circle(100,100,50,'red')
+translate(100,100,200,0)
 
 
-translate(-200, 0, 200, 0)
-draw_rectangle(0, 0, 100, 50, "blue")
-
-
-rotate(0, 0, 45)
-draw_rectangle(0, 0, 100, 50, "blue")
-
-
-draw_rectangle(0, 0, 200, 100, "blue")
-
-
-draw_circle(100, 100, 50, "red")
-
-
-translate(100, 100, 200, 0)
-draw_circle(300, 100, 50, "red")
-
-
-rotate(300, 100, 45)
-draw_circle(300, 100, 50, "red")
-
-
-scale(300, 100, 2, 2)
-draw_circle(600, 200, 100, "red")  
-
+draw_circle(300,100,50,'red')
+rotate(300,100,45)
+draw_circle(600,200,50,'red')
 
 turtle.done()
